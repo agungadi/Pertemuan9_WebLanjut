@@ -167,5 +167,14 @@ class MahasiswaController extends Controller
         $mahasiswas = DB::table('mahasiswas')->where('Nama','like','%'.$search.'%')->paginate(5);
         return view('index', ['mahasiswas'=> $mahasiswas]);
     }
+
+    public function nilai($Nim)
+    {
+        //
+        // $Mahasiswa = Mahasiswa::find($Nim);
+        $mahasiswa = Mahasiswa::find($Nim);
+
+         return view('mahasiswas.nilai', compact('mahasiswa'));
+    }
 }
 
